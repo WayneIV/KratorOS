@@ -23,6 +23,14 @@ def test_load_config_existing(tmp_path):
     assert cfg['general']['openai_key'] == 'abc'
 
 
+def test_load_config_missing_section(tmp_path):
+    path = tmp_path / 'krator.conf'
+    path.write_text('[other]\nkey=value\n')
+    cfg = load_config(path)
+    assert cfg['general']['model'] == 'gpt4all'
+    assert cfg['general']['openai_key'] == ''
+
+
 def test_run_local_model_success(monkeypatch):
     def fake_run(args, capture_output, text, check):
         class Res:
