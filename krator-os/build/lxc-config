@@ -1,0 +1,8 @@
+lxc.include = /usr/share/lxc/config/debian.common.conf
+lxc.arch = linux64
+lxc.rootfs.path = dir:/var/lib/lxc/krator/rootfs
+lxc.uts.name = krator
+
+lxc.mount.auto = cgroup:mixed proc:mixed sys:mixed
+lxc.pty.max = 1024
+
