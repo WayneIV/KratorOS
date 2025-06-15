@@ -1,0 +1,10 @@
+[Unit]
+Description=Krator AI assistant daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/krator_daemon.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

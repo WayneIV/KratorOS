@@ -13,6 +13,6 @@ if [ ! -d "$LB_CONFIG" ]; then
 fi
 
 # Include our package list and hooks
-cp ../scripts/bootstrap.sh "$LB_CONFIG/hooks/" || true
+cp ../../scripts/bootstrap.sh "$LB_CONFIG/hooks/" || true
 
 lb build -b iso-hybrid --config "$LB_CONFIG"
