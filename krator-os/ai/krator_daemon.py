@@ -18,10 +18,9 @@ PLUGIN_DIR = Path(__file__).parent / 'plugins'
 
 def load_config(path: Path) -> configparser.ConfigParser:
     cfg = configparser.ConfigParser()
+    cfg['general'] = {'model': 'gpt4all', 'openai_key': ''}
     if path.exists():
         cfg.read(path)
-    else:
-        cfg['general'] = {'model': 'gpt4all', 'openai_key': ''}
     return cfg
 
 
