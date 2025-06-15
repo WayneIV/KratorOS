@@ -21,7 +21,11 @@ def load_config(path: Path) -> configparser.ConfigParser:
     if path.exists():
         cfg.read(path)
     else:
-        cfg['general'] = {'model': 'gpt4all', 'openai_key': ''}
+        cfg['general'] = {
+            'model': 'gpt4all',
+            'openai_key': '',
+            'model_cmd': 'llama.cpp'
+        }
     return cfg
 
 
@@ -67,6 +71,7 @@ def main():
     cfg = load_config(CONFIG_PATH)
     model = cfg['general'].get('model', 'gpt4all')
     api_key = cfg['general'].get('openai_key', '')
+    model_cmd = cfg['general'].get('model_cmd', 'llama.cpp')
 
     print('Krator AI daemon started. Type a prompt and press enter.')
     for line in sys.stdin:
@@ -83,7 +88,7 @@ def main():
         if model == 'openai' and api_key:
             response = run_openai(prompt, api_key)
         else:
-            response = run_local_model(prompt)
+            response = run_local_model(prompt, model_cmd)
         print(response)
         sys.stdout.flush()
         time.sleep(0.1)
