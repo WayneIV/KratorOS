@@ -10,5 +10,11 @@ make -C krator-os pi        # build Pi image
 make -C krator-os docker    # build Docker image
 ```
 
+Before running the AI components, install Python dependencies:
+
+```
+pip3 install -r requirements.txt
+```
+
 The `krator-os` directory contains the build scripts, configuration and
 assistant source code.

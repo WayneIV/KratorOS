@@ -15,7 +15,7 @@ docker:
 docker build -t krator-os -f build/docker/Dockerfile .
 
 krator:
-pip3 install -r requirements.txt
+    pip3 install -r ../requirements.txt
 
 release:
 cd build && bash release.sh
