@@ -1,6 +1,8 @@
 # Krator OS
 
-Krator OS is a modular, high-performance Debian-based distribution designed for security professionals, entrepreneurs, and AI developers. This repository contains build scripts and configuration files to generate the ISO, Raspberry Pi image, and container builds.
+Krator OS is a modular, security-hardened Debian 12 distribution with an
+integrated AI assistant. It targets security professionals and developers who
+require a dependable environment across bare metal, containers and ARM boards.
 
 ## Directory Structure
 
@@ -12,5 +14,9 @@ Krator OS is a modular, high-performance Debian-based distribution designed for 
   - `installer/` - preseed and post-install tools
   - `docs/` - user and developer documentation
 
-Run `make -C krator-os iso` to build a live ISO or `make docker` for the Docker image.
+## Building
 
+Run `make -C krator-os iso` to build a live ISO or `make -C krator-os docker`
+for the Docker image. See `docs/BUILDING.md` for more details.
+
+Run `make -C krator-os release` after building artifacts to package them.

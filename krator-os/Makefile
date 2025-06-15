@@ -1,3 +1,4 @@
+VERSION=$(shell git describe --tags --always)
 .PHONY: iso pi docker lxc clean
 
 ISO_NAME=krator-os.iso
@@ -16,6 +17,10 @@ docker:
 lxc:
 	@echo "Use build/lxc-config with lxc-create"
 
+version:
+	@echo $(VERSION)
+release:
+	cd build && bash release.sh
 clean:
 	rm -rf build/lb-config build/pi-rootfs $(ISO_NAME) $(PI_IMAGE)
 

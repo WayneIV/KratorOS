@@ -1,3 +1,8 @@
-# Krator OS
+# Krator OS Documentation
 
-Krator OS is a security-focused, AI-enabled Debian distribution. This repository contains build scripts and configuration files used to generate the various deployment images.
+This folder contains developer and user documentation.
+
+- `BUILDING.md` explains how to build ISO, Pi and container images.
+- `architecture.md` provides an overview of the system layout.
+- `security.md` describes the basic hardening included by default.
+
