@@ -20,6 +20,8 @@ make -C krator-os iso
 ```bash
 make -C krator-os pi
 ```
+The resulting image will be written to `krator-pi.img` in the
+`krator-os` directory.
 
 ## Docker container
 
