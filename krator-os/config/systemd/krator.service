@@ -3,7 +3,7 @@ Description=Krator AI assistant daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/krator_daemon.py
+ExecStart=/usr/bin/python3 -m krator.agents.assistant
 Restart=on-failure
 
 [Install]

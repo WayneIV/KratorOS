@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Krator Assistant
-Exec=/usr/bin/krator-daemon
+Exec=/usr/bin/python3 -m krator.agents.assistant
 Type=Application
 Comment=AI assistant

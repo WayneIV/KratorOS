@@ -10,6 +10,6 @@ echo "[update] checking for updates" $(date)
 apt-get update
 apt-get --just-print upgrade
 
-if [ -f /usr/local/bin/krator_daemon.py ]; then
-    echo "Krator daemon version:" $(grep -m1 VERSION /usr/local/bin/krator_daemon.py || true)
+if python3 -m krator.agents.assistant --version >/dev/null 2>&1; then
+    echo "Krator daemon present"
 fi

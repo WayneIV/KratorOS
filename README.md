@@ -10,5 +10,6 @@ make -C krator-os pi        # build Pi image
 make -C krator-os docker    # build Docker image
 ```
 
-The `krator-os` directory contains the build scripts, configuration and
-assistant source code.
+The `krator-os` directory contains the build scripts and system resources.
+Python modules for the assistant now live under the top-level `krator/`
+package which is split into `core` and `agents` submodules.

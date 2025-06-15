@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 CONFIG_PATH = Path('/etc/krator/krator.conf')
-DAEMON_CMD = ['krator-daemon']
+DAEMON_CMD = ['python3', '-m', 'krator.agents.assistant']
 
 
 def call_daemon(prompt: str) -> str:
