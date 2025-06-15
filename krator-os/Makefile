@@ -1,26 +1,24 @@
 VERSION=$(shell git describe --tags --always)
-.PHONY: iso pi docker lxc clean
-
 ISO_NAME=krator-os.iso
 PI_IMAGE=krator-pi.img
 
+.PHONY: iso pi docker krator clean release
+
 iso:
-	cd build && bash live-build.sh
-	mv build/*.iso $(ISO_NAME) || true
+cd build/iso && bash live-build.sh
+mv build/iso/*.iso $(ISO_NAME) 2>/dev/null || true
 
 pi:
-	cd build && sudo bash pi-image.sh
+cd build/pi && sudo bash pi-image.sh
 
 docker:
-	docker build -t krator-os -f build/Dockerfile .
+docker build -t krator-os -f build/docker/Dockerfile .
 
-lxc:
-	@echo "Use build/lxc-config with lxc-create"
+krator:
+pip3 install -r requirements.txt
 
-version:
-	@echo $(VERSION)
 release:
-	cd build && bash release.sh
-clean:
-	rm -rf build/lb-config build/pi-rootfs $(ISO_NAME) $(PI_IMAGE)
+cd build && bash release.sh
 
+clean:
+rm -rf build/lb-config build/pi-rootfs $(ISO_NAME) $(PI_IMAGE)
