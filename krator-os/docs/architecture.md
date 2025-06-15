@@ -1,9 +1,13 @@
 # Krator OS Architecture
 
-This document outlines the high-level components of Krator OS.
+Krator OS is composed of modular layers which can be built for a live ISO,
+Raspberry Pi image or various container formats.
 
-- **Build scripts** located in `build/` produce ISO, Raspberry Pi images, and container images.
-- **AI components** in `ai/` provide the Krator assistant daemon and configuration.
-- **System configuration** under `config/` includes desktop environment and security profiles.
+- **Build scripts** under `build/` produce ISO, Pi and Docker images.
+- **AI components** in `ai/` implement the Krator assistant daemon.
+- **System configuration** in `config/` provides desktop and security profiles.
 - **Installation** tools in `installer/` leverage preseed and post-install scripts.
-- **Automation scripts** in `scripts/` bootstrap systems and provide an initial setup wizard.
+- **Automation scripts** in `scripts/` bootstrap systems, apply hardening and run the setup wizard.
+
+The Makefile orchestrates image builds and release packaging.
+
