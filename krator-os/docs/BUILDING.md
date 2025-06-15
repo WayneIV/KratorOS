@@ -2,6 +2,13 @@
 
 This document outlines the basic steps required to build the various images.
 
+First install the Python dependencies used by the AI tools (run from the
+`krator-os` directory):
+
+```bash
+pip3 install -r ../requirements.txt
+```
+
 ## Live ISO
 
 ```bash

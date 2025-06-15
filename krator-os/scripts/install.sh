@@ -11,6 +11,7 @@ echo "Installing base system to $TARGET"
  debootstrap --arch amd64 "$DEBIAN_RELEASE" "$TARGET" http://deb.debian.org/debian
 
 cp -r ../scripts "$TARGET/usr/local/"
+cp ../../requirements.txt "$TARGET/usr/local/requirements.txt"
 chroot "$TARGET" /usr/local/scripts/bootstrap.sh
 chroot "$TARGET" /usr/local/scripts/krator-setup.py
 
