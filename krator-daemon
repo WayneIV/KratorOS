@@ -1,0 +1,12 @@
+#!/bin/bash
+# Wrapper script to start the Krator AI daemon
+set -e
+DIR="$(dirname "$0")"
+
+if [ -f "$DIR/venv/bin/activate" ]; then
+    . "$DIR/venv/bin/activate"
+elif [ -f "$DIR/.venv/bin/activate" ]; then
+    . "$DIR/.venv/bin/activate"
+fi
+
+exec python3 "$DIR/krator-os/ai/krator_daemon.py" "$@"

@@ -6,7 +6,7 @@ AI_PATH = Path(__file__).resolve().parents[1] / 'krator-os' / 'ai'
 if str(AI_PATH) not in sys.path:
     sys.path.insert(0, str(AI_PATH))
 
-from krator_daemon import load_config, run_local_model
+from krator_daemon import load_config, run_local_model, run_plugin
 
 
 def test_load_config_default(tmp_path):
@@ -51,3 +51,12 @@ def test_run_local_model_error(monkeypatch):
     monkeypatch.setattr(subprocess, 'run', fake_run)
     output = run_local_model('prompt', model_cmd='cmd')
     assert output.startswith('[error running local model:')
+
+
+def test_run_plugin_example():
+    output = run_plugin('example', 'hi')
+    assert output == 'Plugin executed: hi'
+
+
+def test_run_plugin_missing():
+    assert run_plugin('nosuchplugin', '') == ''
